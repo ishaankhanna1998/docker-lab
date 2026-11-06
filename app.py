@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 import socket
 import os
 import psycopg2
+import emoji
+
 
 app = Flask(__name__)
 
@@ -21,7 +23,9 @@ print(f"Model trained. Test accuracy: {accuracy:.3f}")
 
 @app.route("/")
 def home():
-    return f"<h1>Hello</h1><p>Model test accuracy: {accuracy:.1%}</p>"
+    greeting = emoji.emojize("Hello! :waving_hand:")
+    return f"<h1>{greeting}</h1><p>Model test accuracy: {accuracy:.1%}</p>"
+
 
 
 @app.route("/health")
